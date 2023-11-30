@@ -20,6 +20,9 @@ public class NPlayerController : MonoBehaviour
     // in-game information
     [SerializeField] private GameObject InformationPanel;
     [SerializeField] private Text MoneyText;
+
+    // character
+    [SerializeField] private GameObject Character;
     
     //variables
     int money = 200; // starter money
