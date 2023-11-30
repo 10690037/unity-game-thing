@@ -19,28 +19,36 @@ public class NPlayerController : MonoBehaviour
     [SerializeField] private GameObject InformationPanel;
     [SerializeField] private Text MoneyText;
     
-    int money = 0;
+    //variables
+    int money = 200; // starter money
     bool settingsOpen = false;
     
     void Start(){
+        // unlocks the cursor
+        SetCursorState(false);
+        // activate panels
         MainPanel.SetActive(true);
         SettingsPanel.SetActive(false);
         InformationPanel.SetActive(false);
+        // add listeners
         PlayButton.onClick.AddListener(PlayClicked);
         ContinueButton.onClick.AddListener(PlayClicked);
         SettingsButton.onClick.AddListener(SettingsClicked);
         SettingsReturnButton.onClick.AddListener(SettingsClicked);
         QuitButton.onClick.AddListener(QuitGame);
+        // sets the information board
         string sMoney = money.ToString();
         MoneyText.text = "£"+sMoney;
     }
 
+    // executed when play is pressed
     void PlayClicked(){
         MainPanel.SetActive(false);
         InformationPanel.SetActive(true);
         SetCursorState(true);
     }
 
+    // executed when settings is pressed
     void SettingsClicked(){
         if(settingsOpen == false){
             settingsOpen = true;
@@ -53,17 +61,15 @@ public class NPlayerController : MonoBehaviour
         }
     }
 
+    // executed when quit is pressed
     public void QuitGame(){
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
-    private void OnApplicationFocus(bool hasFocus){
-        SetCursorState(true);
-    }
-
-    private void SetCursorState(bool newState){
-        Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+    // activates cursor lock
+    public void SetCursorState(bool hasFocus){
+        Cursor.lockState = true ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     void Update(){
