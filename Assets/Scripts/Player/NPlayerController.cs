@@ -26,6 +26,8 @@ public class NPlayerController : MonoBehaviour
     
     //variables
     int money = 200; // starter money
+    int level = 0; // level
+    int levelOfRobberies = 0; // amount of robberies
     bool settingsOpen = false;
     
     void Start(){
