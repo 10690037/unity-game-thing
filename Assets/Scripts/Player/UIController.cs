@@ -83,6 +83,9 @@ public class UIController : MonoBehaviour
     }
 
     void Update(){
-        
+        if(menu){
+            SetCursorState(false);
+            Cursor.visible = true;
+        }
     }
 }
