@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     // main menu and associated fields
+    
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject SettingsPanel;
     [SerializeField] private Button PlayButton;
@@ -79,7 +80,11 @@ public class UIController : MonoBehaviour
 
     // activates cursor lock
     public void SetCursorState(bool hasFocus){
-        Cursor.lockState = hasFocus ? CursorLockMode.Locked : CursorLockMode.None;
+        if(hasFocus){
+            Cursor.lockState = CursorLockMode.Locked;
+        } else {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     void Update(){
