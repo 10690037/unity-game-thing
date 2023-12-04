@@ -6,9 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class NPlayerController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     // main menu and associated fields
+    
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject SettingsPanel;
     [SerializeField] private Button PlayButton;
@@ -19,20 +20,22 @@ public class NPlayerController : MonoBehaviour
 
     // in-game information
     [SerializeField] private GameObject InformationPanel;
-    [SerializeField] private Text MoneyText;
+    [SerializeField] public Text MoneyText;
 
     // character
     [SerializeField] private GameObject Character;
     
     //variables
+    bool menu = true;
     int money = 200; // starter money
     int level = 0; // level
     int levelOfRobberies = 0; // amount of robberies
     bool settingsOpen = false;
     
     void Start(){
-        // unlocks the cursor
+        // cursor
         SetCursorState(false);
+        Cursor.visible = true;
         // activate panels
         MainPanel.SetActive(true);
         SettingsPanel.SetActive(false);
@@ -53,6 +56,7 @@ public class NPlayerController : MonoBehaviour
         MainPanel.SetActive(false);
         InformationPanel.SetActive(true);
         SetCursorState(true);
+        menu = false;
     }
 
     // executed when settings is pressed
@@ -76,10 +80,17 @@ public class NPlayerController : MonoBehaviour
 
     // activates cursor lock
     public void SetCursorState(bool hasFocus){
-        Cursor.lockState = true ? CursorLockMode.Locked : CursorLockMode.None;
+        if(hasFocus){
+            Cursor.lockState = CursorLockMode.Locked;
+        } else {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     void Update(){
-        
+        if(menu){
+            SetCursorState(false);
+            Cursor.visible = true;
+        }
     }
 }

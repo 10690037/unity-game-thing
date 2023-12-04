@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PowerUP
-  - Enemy
+  - CinemachineTarget
+  - Canvas
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerObject
   - Water
   - UI
   - 
