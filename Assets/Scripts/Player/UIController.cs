@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour
 
     // in-game information
     [SerializeField] private GameObject InformationPanel;
-    [SerializeField] private Text MoneyText;
+    [SerializeField] public Text MoneyText;
 
     // character
     [SerializeField] private GameObject Character;

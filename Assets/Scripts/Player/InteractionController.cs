@@ -22,8 +22,9 @@ public class InteractionController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             Debug.Log("Pressed");
             Ray detectRay = new Ray(InteractorSource.position, InteractorSource.forward);
-            if(Physics.Raycast(detectRay, out RaycastHit hitInfo, InteractRange)){
+            if(Physics.Raycast(detectRay, out RaycastHit hitInfo, InteractRange, 3)){
                 Debug.Log("2");
+                Debug.Log(hitInfo.collider.gameObject.name);
                 if(hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)){
                     Debug.Log("3");
                     interactObj.Interact();
