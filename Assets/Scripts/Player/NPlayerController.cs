@@ -1,3 +1,5 @@
+// michal
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +20,14 @@ public class NPlayerController : MonoBehaviour
     // in-game information
     [SerializeField] private GameObject InformationPanel;
     [SerializeField] private Text MoneyText;
+
+    // character
+    [SerializeField] private GameObject Character;
     
     //variables
     int money = 200; // starter money
+    int level = 0; // level
+    int levelOfRobberies = 0; // amount of robberies
     bool settingsOpen = false;
     
     void Start(){
