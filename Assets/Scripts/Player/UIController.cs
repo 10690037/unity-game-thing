@@ -20,14 +20,14 @@ public class UIController : MonoBehaviour
 
     // in-game information
     [SerializeField] private GameObject InformationPanel;
-    [SerializeField] public Text MoneyText;
+    public Text MoneyText;
 
     // character
     [SerializeField] private GameObject Character;
     
     //variables
     bool menu = true;
-    int money = 200; // starter money
+    public int money = 200; // starter money
     int level = 0; // level
     int levelOfRobberies = 0; // amount of robberies
     bool settingsOpen = false;
@@ -91,6 +91,11 @@ public class UIController : MonoBehaviour
         if(menu){
             SetCursorState(false);
             Cursor.visible = true;
+        } else {
+            // if(int.Parse(MoneyText.text) == money){
+            //     string sMoney = money.ToString();
+            //     MoneyText.text = "£"+sMoney;
+            // }
         }
     }
 }
