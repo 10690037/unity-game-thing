@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GoldReward : MonoBehaviour, IInteractable {
     public GameObject PlayerCapsule;
-    
+    public UIController script;
+
     public void Interact(){
         // string money = MoneyText.text;
         // money = money.Substring(1,1);
         // Debug.Log(money);
-        // PlayerCapsule = GameObject.FindWithTag("Player");
-        // Script = PlayerCapsule.GetComponent<"UIController">();
+        PlayerCapsule = GameObject.FindWithTag("Player");
+        Debug.Log(UIController.money);
+        // Script = PlayerCapsule.GetComponent<UIController>();
         // Debug.Log(Script.money);
         // Debug.Log("Name"+PlayerCapsule.name);
         // public ScriptComponents[] scriptComponents;
