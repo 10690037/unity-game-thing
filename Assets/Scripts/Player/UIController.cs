@@ -49,8 +49,6 @@ public class UIController : MonoBehaviour
         // sets the information board
         string sMoney = money.ToString();
         MoneyText.text = sMoney;
-
-
     }
 
     // executed when play is pressed
@@ -76,7 +74,7 @@ public class UIController : MonoBehaviour
 
     // executed when quit is pressed
     public void QuitGame(){
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false; -- this was for the editor playview
         Application.Quit();
     }
 
@@ -91,12 +89,16 @@ public class UIController : MonoBehaviour
 
     void Update(){
         if(menu){
+            // if on menu, unlock & turn on cursor
             SetCursorState(false);
             Cursor.visible = true;
         } else {
-            if(int.Parse(MoneyText.text) != money){
-                Debug.Log(money);
-                MoneyText.text = money.ToString();
+            //checks if the actual money value is the same as the ui one, if not update with a green effect crazy innit 
+            string mText = MoneyText.text;
+            Debug.Log(mText);
+            mText = mText.Substring(1);
+            if(int.Parse(mText) != money){
+                MoneyText.text = "£"+money.ToString();
                 MoneyText.color = new Color(0,230,0);
                 MoneyText.color = new Color(255,255,255);
             }
