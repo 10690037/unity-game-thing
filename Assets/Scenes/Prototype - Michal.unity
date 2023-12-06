@@ -365,7 +365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e5a1087c565204f42969686d1df0633d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.647
+      value: -0.6444
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e5a1087c565204f42969686d1df0633d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2338,6 +2338,10 @@ PrefabInstance:
     - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_Name
       value: Island
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301643505922104, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625923886776944, guid: 961be46ca9a355943ae3f65c47741bb0, type: 3}
       propertyPath: m_RootOrder
