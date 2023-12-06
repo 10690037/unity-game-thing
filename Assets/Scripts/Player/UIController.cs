@@ -20,7 +20,7 @@ public class UIController : MonoBehaviour
 
     // in-game information
     [SerializeField] private GameObject InformationPanel;
-    public Text MoneyText;
+    [SerializeField] private Text MoneyText;
 
     // character
     [SerializeField] private GameObject Character;
@@ -48,7 +48,9 @@ public class UIController : MonoBehaviour
         QuitButton.onClick.AddListener(QuitGame);
         // sets the information board
         string sMoney = money.ToString();
-        MoneyText.text = "£"+sMoney;
+        MoneyText.text = sMoney;
+
+
     }
 
     // executed when play is pressed
@@ -92,9 +94,16 @@ public class UIController : MonoBehaviour
             SetCursorState(false);
             Cursor.visible = true;
         } else {
-            // if(int.Parse(MoneyText.text) == money){
+            if(int.Parse(MoneyText.text) != money){
+                Debug.Log(money);
+                MoneyText.text = money.ToString();
+                MoneyText.color = new Color(0,230,0);
+                MoneyText.color = new Color(255,255,255);
+            }
+            // if(MoneyText.text == money){
             //     string sMoney = money.ToString();
             //     MoneyText.text = "£"+sMoney;
+            //     MoneyText.color = new Color(0,230,0);
             // }
         }
     }
