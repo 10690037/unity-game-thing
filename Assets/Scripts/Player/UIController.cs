@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text MoneyText;
 
     // character
-    public GameObject character;
+    [SerializeField] private GameObject Character;
     
     //variables
     bool menu = true;
@@ -41,13 +41,12 @@ public class UIController : MonoBehaviour
         SettingsPanel.SetActive(false);
         InformationPanel.SetActive(false);
         // add listeners
-        character = GameObject.FindWithTag("Player");
         PlayButton.onClick.AddListener(PlayClicked);
         ContinueButton.onClick.AddListener(PlayClicked);
         SettingsButton.onClick.AddListener(SettingsClicked);
         SettingsReturnButton.onClick.AddListener(SettingsClicked);
         QuitButton.onClick.AddListener(QuitGame);
-        character.SetActive(false);
+        Character.SetActive(false);
         // sets the information board
         string sMoney = money.ToString();
         MoneyText.text = sMoney;
@@ -59,7 +58,7 @@ public class UIController : MonoBehaviour
         InformationPanel.SetActive(true);
         SetCursorState(true);
         menu = false;
-        character.SetActive(true);
+        Character.SetActive(true);
     }
 
     // executed when settings is pressed
@@ -77,7 +76,7 @@ public class UIController : MonoBehaviour
 
     // executed when quit is pressed
     public void QuitGame(){
-        // UnityEditor.EditorApplication.isPlaying = false; -- this was for the editor playview
+        // UnityEditor.EditorApplication.isPlaying = false; // this was for the editor playview
         Application.Quit();
     }
 

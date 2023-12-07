@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GoldReward : MonoBehaviour, IInteractable {
-    public GameObject PlayerCapsule;
+    [SerializeField] private GameObject Canvas;
     public UIController uiController;
 
     public void Interact(){
-        PlayerCapsule = GameObject.FindWithTag("Player");
-        uiController = PlayerCapsule.GetComponent<UIController>();
-        uiController.money = uiController.money + 2000;
+        uiController = Canvas.GetComponent<UIController>();
+        uiController.money = uiController.money + 168000;
         Destroy(gameObject);
     }
 }
