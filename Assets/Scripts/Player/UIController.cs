@@ -23,7 +23,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text MoneyText;
 
     // character
-    [SerializeField] private GameObject Character;
+    public GameObject character;
     
     //variables
     bool menu = true;
@@ -41,11 +41,13 @@ public class UIController : MonoBehaviour
         SettingsPanel.SetActive(false);
         InformationPanel.SetActive(false);
         // add listeners
+        character = GameObject.FindWithTag("Player");
         PlayButton.onClick.AddListener(PlayClicked);
         ContinueButton.onClick.AddListener(PlayClicked);
         SettingsButton.onClick.AddListener(SettingsClicked);
         SettingsReturnButton.onClick.AddListener(SettingsClicked);
         QuitButton.onClick.AddListener(QuitGame);
+        character.SetActive(false);
         // sets the information board
         string sMoney = money.ToString();
         MoneyText.text = sMoney;
@@ -57,6 +59,7 @@ public class UIController : MonoBehaviour
         InformationPanel.SetActive(true);
         SetCursorState(true);
         menu = false;
+        character.SetActive(true);
     }
 
     // executed when settings is pressed
